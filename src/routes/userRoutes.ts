@@ -7,6 +7,8 @@ import {
   updateUser,
   deleteUser,
 } from '../controllers/userController'
+import { validate } from '../middlewares/validate'
+import { userCreateSchema, userUpdateSchema } from '../schemas/userSchema'
 
 const router = Router()
 
