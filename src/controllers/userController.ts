@@ -1,6 +1,5 @@
 import { Request, Response } from 'express'
 import * as userService from '../services/userService'
-import { userCreateSchema, userUpdateSchema } from '../schemas/userSchema'
 
 // GET /users
 export const getAllUsers = async (_req: Request, res: Response): Promise<void> => {

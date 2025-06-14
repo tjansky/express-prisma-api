@@ -2,11 +2,12 @@ import { z } from 'zod'
 import { Request, Response, NextFunction } from 'express'
 
 export const validate = (schema: z.ZodTypeAny) => {
-  return (req: Request, res: Response, next: NextFunction) => {
+  return (req: Request, res: Response, next: NextFunction): void => {
     const result = schema.safeParse(req.body)
 
     if (!result.success) {
-      return res.status(400).json(result.error.format())
+      res.status(400).json(result.error.format())
+      return
     }
 
     res.locals.validatedData = result.data
